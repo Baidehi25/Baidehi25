@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 200" width="900" height="200">
+  <defs>
+    <style>
+      @keyframes drift1 { 0%{transform:translateY(0)} 50%{transform:translateY(-6px)} 100%{transform:translateY(0)} }
+      @keyframes drift2 { 0%{transform:translateY(0)} 50%{transform:translateY(-9px)} 100%{transform:translateY(0)} }
+      @keyframes drift3 { 0%{transform:translateY(0)} 50%{transform:translateY(-5px)} 100%{transform:translateY(0)} }
+      @keyframes twinkle { 0%,100%{opacity:1} 50%{opacity:0.2} }
+      @keyframes twinkle2 { 0%,100%{opacity:0.6} 40%{opacity:1} 70%{opacity:0.1} }
+      @keyframes twinkle3 { 0%{opacity:0.3} 30%{opacity:1} 60%{opacity:0.5} 100%{opacity:0.3} }
+      @keyframes scanline { 0%{transform:translateY(-200px)} 100%{transform:translateY(200px)} }
+      @keyframes glowpulse { 0%,100%{filter:drop-shadow(0 0 8px #f97316) drop-shadow(0 0 20px #fb923c)} 50%{filter:drop-shadow(0 0 16px #f97316) drop-shadow(0 0 40px #fb923c)} }
+      @keyframes fadeUp { 0%{opacity:0;transform:translateY(12px)} 100%{opacity:1;transform:translateY(0)} }
+
+      .star { animation: twinkle 3s infinite ease-in-out; fill: white; }
+      .star2 { animation: twinkle2 4.5s infinite ease-in-out; fill: #fde68a; }
+      .star3 { animation: twinkle3 2.8s infinite ease-in-out; fill: #fed7aa; }
+      .name { animation: fadeUp 1.2s ease forwards, glowpulse 4s 1.2s infinite ease-in-out; }
+      .sub { animation: fadeUp 1.6s 0.3s ease both; }
+      .scanline-bar {
+        fill: rgba(255,255,255,0.03);
+        animation: scanline 6s linear infinite;
+      }
+    </style>
+
+    <!-- Diagonal mesh gradient bg -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#0f0c1a"/>
+      <stop offset="40%"  stop-color="#1a0a2e"/>
+      <stop offset="100%" stop-color="#2d0a0a"/>
+    </linearGradient>
+
+    <!-- Glow gradient for the bottom border line -->
+    <linearGradient id="borderGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#0f0c1a" stop-opacity="0"/>
+      <stop offset="30%"  stop-color="#f97316"/>
+      <stop offset="60%"  stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#0f0c1a" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="topLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#0f0c1a" stop-opacity="0"/>
+      <stop offset="40%"  stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#0f0c1a" stop-opacity="0"/>
+    </linearGradient>
+
+    <clipPath id="clip">
+      <rect width="900" height="200"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="200" fill="url(#bg)"/>
+
+  <!-- Scanline overlay -->
+  <g clip-path="url(#clip)">
+    <rect class="scanline-bar" x="0" y="0" width="900" height="40" opacity="0.05"/>
+  </g>
+
+  <!-- Grid dots (subtle) -->
+  <g opacity="0.07">
+    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#fff"/>
+    </pattern>
+    <rect width="900" height="200" fill="url(#dots)"/>
+  </g>
+
+  <!-- Stars -->
+  <circle class="star"  cx="42"  cy="18" r="1.2" style="animation-delay:0s"/>
+  <circle class="star2" cx="130" cy="35" r="1"   style="animation-delay:0.8s"/>
+  <circle class="star"  cx="210" cy="12" r="1.5" style="animation-delay:1.3s"/>
+  <circle class="star3" cx="310" cy="28" r="1"   style="animation-delay:0.4s"/>
+  <circle class="star"  cx="420" cy="8"  r="1.3" style="animation-delay:2s"/>
+  <circle class="star2" cx="510" cy="22" r="1"   style="animation-delay:0.6s"/>
+  <circle class="star3" cx="620" cy="15" r="1.5" style="animation-delay:1.7s"/>
+  <circle class="star"  cx="720" cy="30" r="1"   style="animation-delay:0.2s"/>
+  <circle class="star2" cx="800" cy="10" r="1.2" style="animation-delay:1s"/>
+  <circle class="star3" cx="870" cy="40" r="1"   style="animation-delay:2.3s"/>
+  <circle class="star"  cx="80"  cy="55" r="0.8" style="animation-delay:1.5s"/>
+  <circle class="star2" cx="650" cy="55" r="1"   style="animation-delay:0.9s"/>
+  <circle class="star3" cx="760" cy="62" r="0.8" style="animation-delay:1.2s"/>
+  <circle class="star"  cx="370" cy="50" r="1"   style="animation-delay:0.3s"/>
+
+  <!-- Decorative corner brackets -->
+  <g stroke="#f97316" stroke-width="1.5" fill="none" opacity="0.6">
+    <!-- top-left -->
+    <polyline points="18,10 10,10 10,25"/>
+    <!-- top-right -->
+    <polyline points="882,10 890,10 890,25"/>
+    <!-- bottom-left -->
+    <polyline points="18,190 10,190 10,175"/>
+    <!-- bottom-right -->
+    <polyline points="882,190 890,190 890,175"/>
+  </g>
+
+  <!-- Top accent line -->
+  <rect x="0" y="2" width="900" height="1.5" fill="url(#topLine)" opacity="0.8"/>
+
+  <!-- Main name text -->
+  <text
+    class="name"
+    x="450" y="115"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="'Courier New', monospace"
+    font-size="46"
+    font-weight="700"
+    letter-spacing="6"
+    fill="#ffffff"
+  >Hey, What's Good! 👾</text>
+
+  <!-- Bottom glow border -->
+  <rect x="0" y="196" width="900" height="2" fill="url(#borderGlow)"/>
+</svg>
