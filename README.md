@@ -25,8 +25,8 @@ currently : building things, breaking things, learning things
 ```
 
 - 🔭 I build interactive websites that blend design with code
-- 👯 Open for collabs on creative web projects or ML experiments
 - 🌱 Currently honing ML skills and front-end wizardry
+- 👯 Open for collabs on creative web projects or ML experiments
 - ⚡ I enjoy turning random ideas into tiny experiments
 
 <!-- Meme badge strip -->
